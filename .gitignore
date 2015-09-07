@@ -1,0 +1,9 @@
+# Components/Package files
+node_modules
+bower_components
+libs
+npm-debug.log
+
+# Misc.
+.DS_Store
+.sass-cache
