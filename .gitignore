@@ -7,3 +7,6 @@ npm-debug.log
 # Misc.
 .DS_Store
 .sass-cache
+
+# Compiled Files
+release/css

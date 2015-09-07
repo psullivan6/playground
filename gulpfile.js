@@ -36,3 +36,23 @@ gulp.task('css', function(){
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('release/css'));
 });
+
+
+// #############################################################################
+// Tasks > Clean Disribution/Build Directory                        $ gulp clean
+// #############################################################################
+gulp.task('clean', function (callback) {
+  del('release/css', callback);
+});
+
+
+// #############################################################################
+// Tasks > Watch files then run tasks                               $ gulp watch
+// #############################################################################
+gulp.task('watch', function() {
+  gulp.watch('_source/css/**/*.scss', ['css']);
+});
+
+gulp.task('default', ['watch']);
+
+module.exports = gulp;
