@@ -1,6 +1,8 @@
 # playground
 Boilerplate for simple, playground dev
 
+[Download Latest Release](https://github.com/psullivan6/playground/releases/latest)
+
 ## Scratch Build Instructions
 
 ### Pre-Build Setup
