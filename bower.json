@@ -1,0 +1,29 @@
+{
+  "name": "playground",
+  "version": "0.0.0",
+  "description": "Backbone JS playground",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/psullivan6/playground.git"
+  },
+  "authors": [
+    "Patrick Sullivan"
+  ],
+  "bugs": {
+    "url": "https://github.com/psullivan6/playground/issues"
+  },
+  "homepage": "https://github.com/psullivan6/playground",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.1.2",
+    "jquery": "~2.1.3",
+    "requirejs-text": "~2.0.14"
+  }
+}
