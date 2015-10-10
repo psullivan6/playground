@@ -9,4 +9,5 @@ npm-debug.log
 .sass-cache
 
 # Compiled Files
-release/css
+release
+.cache-require-paths.json
