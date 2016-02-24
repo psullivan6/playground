@@ -1,4 +1,13 @@
-var config = require('../config');
-var gulp   = require('gulp');
+var config      = require('../config');
+var gulp        = require('gulp');
+var runSequence = require('run-sequence');
 
-gulp.task('build', ['css']);
+gulp.task('compile', ['css', 'js','html']);
+
+gulp.task('build', function (callback) {
+  return runSequence(
+    'clean',
+    'compile',
+    callback
+  );
+});

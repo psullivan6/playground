@@ -9,7 +9,7 @@ module.exports = {
     },
     html: {
       source:  './_source/*.html',
-      watch:   './_source/templates/**/*.html',
+      watch:   './_source/**/*.html',
       release: './release'
     },
     js: {
