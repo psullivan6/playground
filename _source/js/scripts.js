@@ -1,3 +1,3 @@
 (function(window){
-  console.log('TEST TEST');
+  console.log('Playground scripts');
 })(window)

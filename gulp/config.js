@@ -1,5 +1,5 @@
-var sourceDirectory   = './_source';
-var compiledDirectory = './release';
+var sourceDirectory   = '_source';
+var compiledDirectory = 'release';
 
 module.exports = {
   paths: {

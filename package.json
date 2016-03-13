@@ -18,6 +18,7 @@
   "homepage": "https://github.com/psullivan6/playground",
   "dependencies": {
     "del": "^2.0.1",
+    "express": "^4.13.4",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-concat": "^2.6.0",
