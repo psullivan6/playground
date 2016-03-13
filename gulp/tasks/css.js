@@ -2,15 +2,10 @@ var autoprefixer = require('gulp-autoprefixer');
 var concat       = require('gulp-concat');
 var config       = require('../config');
 var gulp         = require('gulp');
-var utility      = require('gulp-util');
+var handleErrors = require('../helper/handleErrors');
 var minify_css   = require('gulp-cssnano');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
-
-var handleErrors = function(error){
-  console.warn('\n', error.toString(), '\n');
-  utility.beep();
-};
 
 gulp.task('css', function(){
   return gulp.src(config.paths.css.source)
@@ -20,5 +15,6 @@ gulp.task('css', function(){
       .pipe(concat(config.names.css))
       .pipe(minify_css())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.paths.css.release));
+    .pipe(gulp.dest(config.paths.css.release))
+    .pipe(gulp.dest(config.paths.css.testing));
 });

@@ -9,7 +9,6 @@ gulp.task('js', function() {
   return gulp.src(config.paths.js.source)
     .pipe(sourcemaps.init())
       .pipe(concat(config.names.js))
-      //only uglify if gulp is ran with '--type production'
       .pipe(utility.env.production ? minify_js() : utility.noop())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(config.paths.js.release));

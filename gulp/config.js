@@ -1,25 +1,54 @@
+var sourceDirectory   = './_source';
+var compiledDirectory = './release';
+
 module.exports = {
   paths: {
-    project: './',
-    release: './release',
+    source: sourceDirectory,
+    release: compiledDirectory,
     css: {
-      source:  './_source/css/styles.scss',
-      watch:   './_source/css/**/*.scss',
-      release: './release/css'
+      source:  sourceDirectory   + '/css/styles.scss',
+      watch:   sourceDirectory   + '/css/**/*.scss',
+      release: compiledDirectory + '/css',
+      testing: sourceDirectory   + '/css'
     },
     html: {
-      source:  './_source/*.html',
-      watch:   './_source/**/*.html',
-      release: './release'
+      source:  [
+        sourceDirectory  + '/*.jade',
+        '!' + sourceDirectory + '/_layout.jade'
+      ],
+      watch:   sourceDirectory  + '/**/*.jade',
+      release: compiledDirectory,
+      testing: sourceDirectory
     },
     js: {
-      source:  './_source/js/scripts.js',
-      watch:   './_source/js/**/*.js',
-      release: './release/js'
-    }
+      source:  sourceDirectory   + '/js/scripts.js',
+      watch:   sourceDirectory   + '/js/**/*.js',
+      release: compiledDirectory + '/js'
+    },
+    json: {
+      source:  sourceDirectory   + '/data/**/*.json',
+      watch:   sourceDirectory   + '/data/**/*.json',
+      release: compiledDirectory + '/data'
+    },
+    libs: {
+      source:  sourceDirectory   + '/libs/**/*',
+      release: compiledDirectory + '/libs'
+    },
+    clean: [
+      compiledDirectory,
+      sourceDirectory + '/css/*.css',
+      sourceDirectory + '/*.html'
+    ],
+    superclean: [
+      compiledDirectory,
+      sourceDirectory + '/css/*.css',
+      sourceDirectory + '/*.html',
+      sourceDirectory + '/libs',
+      './node_modules'
+    ]
   },
   names: {
-    css: 'css.css',
-    js:  'js.js'
+    css: 'styles.css',
+    js:  'scripts.js'
   }
 };

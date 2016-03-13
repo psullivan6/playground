@@ -1,4 +1,4 @@
-var notify = require("gulp-notify");
+var utility = require('gulp-util');
 
 module.exports = function(error){
   console.warn('\n', error.toString(), '\n');
