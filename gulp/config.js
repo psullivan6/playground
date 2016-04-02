@@ -5,6 +5,7 @@ module.exports = {
   paths: {
     source: sourceDirectory,
     release: compiledDirectory,
+    deployBucket: 'playground.psullivan6.com',
     css: {
       source:  sourceDirectory   + '/css/styles.scss',
       watch:   sourceDirectory   + '/css/**/*.scss',

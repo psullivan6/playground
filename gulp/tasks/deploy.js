@@ -8,7 +8,7 @@ gulp.task('deploy', ['build'], function() {
   var publisher = awspublish.create({
     region: 'us-west-2',
     params: {
-      Bucket: 'playground.psullivan6.com'
+      Bucket: config.paths.deployBucket
     },
     credentials: credentials
   });
