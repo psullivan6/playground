@@ -30,10 +30,12 @@ module.exports = {
       watch:   sourceDirectory   + '/data/**/*.json',
       release: compiledDirectory + '/data'
     },
-    libs: {
-      source:  sourceDirectory   + '/libs/**/*',
-      release: compiledDirectory + '/libs'
-    },
+    move: [
+      {
+        source:  sourceDirectory   + '/libs/**/*',
+        release: compiledDirectory + '/libs'
+      }
+    ],
     clean: [
       compiledDirectory,
       sourceDirectory + '/css/*.css',

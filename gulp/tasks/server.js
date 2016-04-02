@@ -11,6 +11,7 @@ gulp.task('server', function(callback){
   var ENVIRONMENT = (utility.env.production) ? config.paths.release : config.paths.source;
 
   app.use('/', express.static(ENVIRONMENT));
+  app.use('*', express.static(ENVIRONMENT + '/404.html'));
 
   app.listen(PORT);
   console.log('Repo live on', 'PORT'.brightYellow, PORT.brightYellow);
