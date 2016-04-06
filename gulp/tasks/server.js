@@ -8,13 +8,13 @@ var PORT = '1030';
 
 gulp.task('server', function(callback){
   var app = express();
-  var ENVIRONMENT = (utility.env.production) ? config.paths.release : config.paths.source;
+  var ENVIRONMENT = (utility.env.env === 'production' || utility.env.env === 'staging') ? config.paths.release : config.paths.source;
 
   app.use('/', express.static(ENVIRONMENT));
   app.use('*', express.static(ENVIRONMENT + '/404.html'));
 
   app.listen(PORT);
-  console.log('Repo live on', 'PORT'.brightYellow, PORT.brightYellow);
+  console.log('Repo live on', 'PORT'.brightYellow, PORT.brightYellow, 'via the', ENVIRONMENT.brightYellow, 'directory');
 
   return callback();
 });

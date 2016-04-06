@@ -1,16 +1,26 @@
-var awspublish  = require('gulp-awspublish');
-var config      = require('../config');
-var fs          = require('fs');
-var gulp        = require('gulp');
+var awspublish = require('gulp-awspublish');
+var config     = require('../config');
+var fs         = require('fs');
+var gulp       = require('gulp');
+var utility    = require('gulp-util');
 
-gulp.task('deploy', ['build'], function() {
-  var credentials = JSON.parse(fs.readFileSync('aws-credentials.json', 'utf8'));
+gulp.task('deploy', ['build-full'], function() {
+  var REMOTE = utility.env.to || utility.env.env || utility.env.remote;
+
+  if (typeof REMOTE === 'undefined') {
+    throw new utility.PluginError('undefined remote', {
+      message: '\nNo remote defined. \nPlease use `gulp deploy --to=REMOTE` syntax when using this task.\n'
+    });
+    return false;
+  }
+
+  var awsConfig = JSON.parse(fs.readFileSync('aws-config.json', 'utf8'));
   var publisher = awspublish.create({
-    region: 'us-west-2',
+    region: awsConfig.buckets[REMOTE].region,
     params: {
-      Bucket: config.paths.deployBucket
+      Bucket: awsConfig.buckets[REMOTE].name
     },
-    credentials: credentials
+    credentials: awsConfig.credentials
   });
 
   return gulp.src(config.paths.release + '/**/*')

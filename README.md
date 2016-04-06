@@ -14,6 +14,32 @@ To build the final release code, run the `gulp build` command.
 
 ## Deploy
 
+### Configuration
+
+To deploy the site to the correct S3 bucket, ensure that your `aws-config.json`
+is set with the correct information. An example has been included below for
+reference:
+
+```
+{
+  "credentials": {
+    "accessKeyId": "ACCESS_KEY_HERE",
+    "secretAccessKey": "SECRET_HERE"
+  },
+  "buckets": {
+    "production" : {
+      "region" : "us-west-2",
+      "name"   : "BUCKET_NAME_HERE"
+    },
+    "staging" : {
+      "region" : "us-west-2",
+      "name"   : "BUCKET_NAME_HERE"
+    }
+  }
+}
+
+### Bucket Policy
+
 To deploy the `release` code to an Amazon S3 bucket, ensure the bucket is setup
 to accept static websites and has the following bucket policy:
 ```

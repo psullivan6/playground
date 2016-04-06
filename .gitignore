@@ -16,4 +16,4 @@ _source/*.html
 release
 
 # Credentials
-aws-credentials.json
+aws-config.json

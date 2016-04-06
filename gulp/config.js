@@ -5,7 +5,6 @@ module.exports = {
   paths: {
     source: sourceDirectory,
     release: compiledDirectory,
-    deployBucket: 'playground.psullivan6.com',
     css: {
       source:  sourceDirectory   + '/css/styles.scss',
       watch:   sourceDirectory   + '/css/**/*.scss',
@@ -35,6 +34,14 @@ module.exports = {
       {
         source:  sourceDirectory   + '/libs/**/*',
         release: compiledDirectory + '/libs'
+      },
+      {
+        source:  sourceDirectory   + '/images/**/*',
+        release: compiledDirectory + '/images'
+      },
+      {
+        source:  sourceDirectory   + '/fonts/**/*',
+        release: compiledDirectory + '/fonts'
       }
     ],
     clean: [

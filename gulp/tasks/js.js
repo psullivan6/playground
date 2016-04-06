@@ -6,10 +6,12 @@ var minify_js  = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('js', function() {
+  var fullCompile = utility.env.env === 'production' || utility.env.env === 'staging';
+
   return gulp.src(config.paths.js.source)
-    .pipe(sourcemaps.init())
+    .pipe(fullCompile ? utility.noop() : sourcemaps.init())
       .pipe(concat(config.names.js))
-      .pipe(utility.env.production ? minify_js() : utility.noop())
-    .pipe(sourcemaps.write())
+      .pipe(fullCompile ? minify_js() : utility.noop())
+    .pipe(fullCompile ? utility.noop() : sourcemaps.write())
     .pipe(gulp.dest(config.paths.js.release));
 });

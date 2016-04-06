@@ -6,15 +6,17 @@ var handleErrors = require('../helper/handleErrors');
 var minify_css   = require('gulp-cssnano');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
+var utility      = require('gulp-util');
 
 gulp.task('css', function(){
+  var fullCompile = utility.env.env === 'production' || utility.env.env === 'staging';
+
   return gulp.src(config.paths.css.source)
-    .pipe(sourcemaps.init())
+    .pipe(fullCompile ? utility.noop() : sourcemaps.init())
       .pipe(sass().on('error', handleErrors))
       .pipe(autoprefixer('last 2 versions'))
       .pipe(concat(config.names.css))
       .pipe(minify_css())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.paths.css.release))
-    .pipe(gulp.dest(config.paths.css.testing));
+    .pipe(fullCompile ? utility.noop() : sourcemaps.write())
+    .pipe(gulp.dest(fullCompile ? config.paths.css.release : config.paths.css.testing));
 });
