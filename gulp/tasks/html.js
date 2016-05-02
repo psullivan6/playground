@@ -1,14 +1,14 @@
 var config       = require('../config');
 var gulp         = require('gulp');
 var handleErrors = require('../helper/handleErrors');
-var jade         = require('gulp-jade');
+var pug         = require('gulp-pug');
 var utility      = require('gulp-util');
 
 gulp.task('html', function() {
   var fullCompile = utility.env.env === 'production' || utility.env.env === 'staging';
 
   gulp.src(config.paths.html.source)
-    .pipe(jade({
+    .pipe(pug({
       pretty: true,
       locals: {
         localDevOnly: !fullCompile
