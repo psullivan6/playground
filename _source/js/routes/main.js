@@ -23,8 +23,6 @@ define([
 
       this.boilerplateView = new BoilerplateView({ page: route });
       this.boilerplateView.render();
-
-      console.log('DATA', route, parameters);
     }
   });
 

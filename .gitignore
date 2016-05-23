@@ -1,13 +1,24 @@
-# Components/Package files
+# Dependency directories
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 bower_components
 libs
+
+# Logs
+logs
+*.log
 npm-debug.log
+
+# Final built directory
+/release
+
+# Asset files
+/_comps
+
+# Environment Variables
+.env
 
 # Misc.
 .DS_Store
 .sass-cache
-
-# Compiled Files
-release/css
 .cache-require-paths.json

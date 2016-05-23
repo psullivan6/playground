@@ -1,0 +1,100 @@
+// #############################################################################
+// Typography
+// #############################################################################
+@mixin font-size($size: medium){
+  @if $size == small{
+
+    font-size: 11px;
+    @media (min-width: #{$bp-small}) { font-size: 14px; }
+
+  } @else if $size == medium{
+
+    font-size: 18px;
+    @media (min-width: #{$bp-small}) { font-size: 24px; }
+
+  } @else {
+
+    font-size: 24px;
+    @media (min-width: #{$bp-small}) { font-size: 30px; }
+
+  }
+}
+
+@mixin line-height($size: medium){
+  @if $size == small{
+
+    line-height: 11px;
+    @media (min-width: #{$bp-small}) { line-height: 14px; }
+
+  } @else if $size == medium{
+
+    line-height: 18px;
+    @media (min-width: #{$bp-small}) { line-height: 24px; }
+
+  } @else {
+
+    line-height: 24px;
+    @media (min-width: #{$bp-small}) { line-height: 30px; }
+
+  }
+}
+
+
+// #############################################################################
+// Breakpoints
+// #############################################################################
+@mixin bp-xsmall{
+  @media screen and (max-width: #{$bp-xsmall}) {
+    @content;
+  }
+}
+
+@mixin bp-small{
+  @media screen and (min-width: #{$bp-xsmall + 1}) {
+    @content;
+  }
+}
+
+@mixin bp-medium{
+  @media screen and (min-width: #{$bp-small + 1}) {
+    @content;
+  }
+}
+
+@mixin bp-large{
+  @media screen and (min-width: #{$bp-medium + 1}) {
+    @content;
+  }
+}
+
+
+// #############################################################################
+// Images
+// #############################################################################
+@mixin image($file-name){
+  background-image: url("/images/small/#{$file-name}");
+
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2)      and (max-width: 400px),
+    only screen and (   min--moz-device-pixel-ratio: 2)      and (max-width: 400px),
+    only screen and (     -o-min-device-pixel-ratio: 2/1)    and (max-width: 400px),
+    only screen and (        min-device-pixel-ratio: 2)      and (max-width: 400px),
+    only screen and (                min-resolution: 192dpi) and (max-width: 400px),
+    only screen and (                min-resolution: 2dppx)  and (max-width: 400px) {
+      background-image: url("/images/medium/#{$file-name}");
+  }
+
+  @media screen and (min-width: 401px) {
+    background-image: url("/images/medium/#{$file-name}");
+  }
+
+  @media
+    only screen and (-webkit-min-device-pixel-ratio: 2)      and (min-width: 401px),
+    only screen and (   min--moz-device-pixel-ratio: 2)      and (min-width: 401px),
+    only screen and (     -o-min-device-pixel-ratio: 2/1)    and (min-width: 401px),
+    only screen and (        min-device-pixel-ratio: 2)      and (min-width: 401px),
+    only screen and (                min-resolution: 192dpi) and (min-width: 401px),
+    only screen and (                min-resolution: 2dppx)  and (min-width: 401px) {
+      background-image: url("/images/large/#{$file-name}");
+  }
+}

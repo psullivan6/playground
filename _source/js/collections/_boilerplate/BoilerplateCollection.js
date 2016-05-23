@@ -5,7 +5,7 @@ define([
 
   var BoilerplateCollection = Backbone.Collection.extend({
     model: BoilerplateModel,
-    url: './api/carousel'
+    url: './api/boilerplate'
   });
 
   return BoilerplateCollection;
