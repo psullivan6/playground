@@ -2,6 +2,8 @@ var awspublish = require('gulp-awspublish');
 var config     = require('../config');
 var fs         = require('fs');
 var gulp       = require('gulp');
+var path       = require('path');
+var rename     = require('gulp-rename');
 var utility    = require('gulp-util');
 
 gulp.task('deploy', ['build-full'], function() {
@@ -24,6 +26,9 @@ gulp.task('deploy', ['build-full'], function() {
   });
 
   return gulp.src(config.paths.release + '/**/*')
+    .pipe(rename(function(filePath) {
+      filePath.dirname = path.join(config.paths.deploy, filePath.dirname);
+    }))
      // gzip, Set Content-Encoding headers and add .gz extension
     .pipe(awspublish.gzip())
 
@@ -32,6 +37,6 @@ gulp.task('deploy', ['build-full'], function() {
     // create a cache file to speed up consecutive uploads
     .pipe(publisher.cache())
 
-    //  // print upload updates to console
+    // print upload updates to console
     .pipe(awspublish.reporter());
 });

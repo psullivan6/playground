@@ -14,6 +14,7 @@ release
 _source/css/*.css
 _source/*.html
 release
+.awspublish*
 
 # Credentials
 aws-config.json

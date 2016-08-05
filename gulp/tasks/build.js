@@ -1,6 +1,7 @@
 var config      = require('../config');
 var gulp        = require('gulp');
 var runSequence = require('run-sequence');
+var utility     = require('gulp-util');
 
 var taskSequence = function(callback){
   return runSequence(

@@ -1,10 +1,12 @@
 var sourceDirectory   = '_source';
 var compiledDirectory = 'release';
+var deployDirectory   = '';
 
 module.exports = {
   paths: {
     source: sourceDirectory,
     release: compiledDirectory,
+    deploy: deployDirectory,
     css: {
       source:  sourceDirectory   + '/css/styles.scss',
       watch:   sourceDirectory   + '/css/**/*.scss',
@@ -34,6 +36,10 @@ module.exports = {
       {
         source:  sourceDirectory   + '/libs/**/*',
         release: compiledDirectory + '/libs'
+      },
+      {
+        source:  sourceDirectory   + '/data/**/*',
+        release: compiledDirectory + '/data'
       },
       {
         source:  sourceDirectory   + '/images/**/*',
