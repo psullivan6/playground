@@ -1,12 +1,15 @@
 var sourceDirectory   = '_source';
 var compiledDirectory = 'release';
-var deployDirectory   = '';
+var deploy = {
+  directory: '',
+  url: 'playground-ps.surge.sh'
+};
 
 module.exports = {
   paths: {
     source: sourceDirectory,
     release: compiledDirectory,
-    deploy: deployDirectory,
+    deploy: deploy,
     css: {
       source:  sourceDirectory   + '/css/styles.scss',
       watch:   sourceDirectory   + '/css/**/*.scss',
