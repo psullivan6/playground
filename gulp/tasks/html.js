@@ -1,7 +1,7 @@
 var config       = require('../config');
 var gulp         = require('gulp');
 var handleErrors = require('../helper/handleErrors');
-var pug         = require('gulp-pug');
+var pug          = require('gulp-pug');
 var utility      = require('gulp-util');
 
 gulp.task('html', function() {
