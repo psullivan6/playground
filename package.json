@@ -36,7 +36,9 @@
     "run-sequence": "^1.1.5"
   },
   "devDependencies": {
+    "bourbon-neat": "^1.8.0",
     "cache-require-paths": "^0.1.2",
-    "colors": "psullivan6/colors.js"
+    "colors": "psullivan6/colors.js",
+    "gulp-concat": "^2.6.1"
   }
 }

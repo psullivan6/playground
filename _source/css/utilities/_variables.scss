@@ -1,7 +1,4 @@
-// #############################################################################
-// Layout
-// #############################################################################
-$gutter: 30px;
+@import "neat-helpers";
 
 
 // #############################################################################
@@ -19,3 +16,42 @@ $black: #000033; // this is a dark blue to be mainly used for typography
 $color--selected-background: $red;
 $color--selected-text: white;
 $color--horizontal-rule: $gray;
+
+
+// #############################################################################
+// Layout
+// #############################################################################
+$column: 90px;
+$gutter: 30px;
+$gutter-small: 12px; // size of the spacing on the SGW image from border to outside
+
+// =============================================================================
+// Layout > Breakpoints
+// =============================================================================
+$breakpoints: (
+  xxsmall : (size: 0,      columnCount: 1),
+  xsmall  : (size: 240px,  columnCount: 2),
+  small   : (size: 480px,  columnCount: 4),
+  medium  : (size: 720px,  columnCount: 6),
+  large   : (size: 960px,  columnCount: 8),
+  xlarge  : (size: 1200px, columnCount: 10),
+  xxlarge : (size: 1440px, columnCount: 12)
+);
+
+$xxsmall : new-breakpoint(min-width #{map-get(map-get($breakpoints, xxsmall), size)} map-get(map-get($breakpoints, xxsmall), columnCount));
+$xsmall  : new-breakpoint(min-width #{map-get(map-get($breakpoints, xsmall), size)}  map-get(map-get($breakpoints, xsmall), columnCount));
+$small   : new-breakpoint(min-width #{map-get(map-get($breakpoints, small), size)}   map-get(map-get($breakpoints, small), columnCount));
+$medium  : new-breakpoint(min-width #{map-get(map-get($breakpoints, medium), size)}  map-get(map-get($breakpoints, medium), columnCount));
+$large   : new-breakpoint(min-width #{map-get(map-get($breakpoints, large), size)}   map-get(map-get($breakpoints, large), columnCount));
+$xlarge  : new-breakpoint(min-width #{map-get(map-get($breakpoints, xlarge), size)}  map-get(map-get($breakpoints, xlarge), columnCount));
+$xxlarge : new-breakpoint(min-width #{map-get(map-get($breakpoints, xxlarge), size)} map-get(map-get($breakpoints, xxlarge), columnCount));
+
+
+// =============================================================================
+// Layout > Debugging Grid
+// =============================================================================
+// $visual-grid: true;
+$visual-grid-color: rgba($gray, 0.75);
+$visual-grid-index: front;
+
+$max-width: map-get(map-get($breakpoints, xxlarge), size);

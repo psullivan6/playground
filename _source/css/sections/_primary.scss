@@ -1,0 +1,10 @@
+.primary {
+  img {
+    display: block;
+    position: absolute;
+    left: $gutter * 2;
+    bottom: $gutter * 2;
+    min-width: 60%;
+    filter: grayscale(100%);
+  }
+}

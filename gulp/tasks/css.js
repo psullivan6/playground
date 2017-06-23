@@ -3,6 +3,7 @@ var concat       = require('gulp-concat');
 var config       = require('../config');
 var gulp         = require('gulp');
 var handleErrors = require('../helper/handleErrors');
+var includePaths = require("bourbon-neat").includePaths;
 var minify_css   = require('gulp-cssnano');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
@@ -13,7 +14,9 @@ gulp.task('css', function(){
 
   return gulp.src(config.paths.css.source)
     .pipe(fullCompile ? utility.noop() : sourcemaps.init())
-      .pipe(sass().on('error', handleErrors))
+      .pipe(sass({
+        includePaths: includePaths
+      }).on('error', handleErrors))
       .pipe(autoprefixer('last 2 versions'))
       .pipe(concat(config.names.css))
       .pipe(minify_css())
